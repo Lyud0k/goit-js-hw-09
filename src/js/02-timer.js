@@ -35,10 +35,14 @@ function timeCh(selectetData) {
   btn.addEventListener('click', () => {
 btn.disabled = true;
     const int = setInterval(() => {
-      const dateNow = Date.now();
-      const timeLeft = tt - dateConst;
-      const timeDifference = dateNow - dateConst;
-      const timeCountdown = timeLeft - timeDifference;
+      // const dateNow = Date.now();
+      // const timeLeft = tt - dateConst;
+      // const timeDifference = dateNow - dateConst;
+      // const timeCountdown = timeLeft - timeDifference;
+      const timeCountdown = selectetData - Date.now();
+      if (timeCountdown <= 1000) {
+        clearInterval(int);
+      }
       const { days, hours, minutes, seconds } = convertMs(timeCountdown);
       console.log(`${days}:${hours}:${minutes}:${seconds}`);
       valueSeconds.textContent = seconds;
@@ -49,17 +53,8 @@ btn.disabled = true;
       console.log(`${valueMinutes.textContent}`);
       console.log(`${valueHours.textContent}`);
       console.log(`${valueDays.textContent}`);
-      //     console.log(timeLeft);
-      // console.log(timeDifference);
-      console.log(timeCountdown);
-      // console.log(dateNow);
-      // console.log(dateConst);
     }, 1000);
-    if (timeCountdown < 0) {
-      clearInterval(int);
-    }
   });
-
 }
 
 function convertMs(ms) {
@@ -85,7 +80,7 @@ function convertMs(ms) {
 // console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
 // console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
 
-const dateConst = Date.now();
+// const dateConst = Date.now();
 
   function addLeadingZero(value) {
     return String(value).padStart(2, '0');
