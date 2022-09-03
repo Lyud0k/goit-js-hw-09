@@ -8,7 +8,7 @@ stopBtn.addEventListener('click', stopChangeColor);
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
-
+let col;
 function changeColor() {
     startBtn.disabled = true;
     Box.style.backgroundColor = getRandomHexColor();
@@ -18,8 +18,8 @@ function changeColor() {
 
 function stopChangeColor() {
     clearTimeout(col);
-    // startBtn.disabled = false;
-    // console.log(stopBtn);
+    startBtn.disabled = false;
+    console.log(stopBtn);
 }
 
 
