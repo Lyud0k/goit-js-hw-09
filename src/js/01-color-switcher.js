@@ -18,7 +18,8 @@ function changeColor() {
 
 function stopChangeColor() {
     clearTimeout(col);
-    startBtn.disabled = false;
+    // startBtn.disabled = false;
+    // console.log(stopBtn);
 }
 
 
